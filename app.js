@@ -13,6 +13,7 @@ class UI{
         const books = Store.getBooks();
         books.forEach((book) => UI.addBookToList(book));
     }
+
     static addBookToList(book){
         const list = document.querySelector('#book-list');
         const row = document.createElement('tr');
@@ -24,6 +25,7 @@ class UI{
         `;
         list.appendChild(row);
     }
+
     static showAlert(message, className){
         const div = document.createElement('div');
         div.className = `alert alert-${className}`;
@@ -37,11 +39,13 @@ class UI{
         // Vanish in 3 Seconds
         setTimeout(() => document.querySelector('.alert').remove(), 3000);
     }
+    
     static deleteBook(el){
         if(el.classList.contains('delete')){
             el.parentElement.parentElement.remove();
         }
     }
+
     static clearFields(){
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
